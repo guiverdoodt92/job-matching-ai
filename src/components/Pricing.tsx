@@ -134,7 +134,8 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              <button className={`w-full py-4 rounded-xl font-semibold text-lg transition-all transform hover:scale-105 ${plan.button}`}>
+              <button 
+                className={`w-full py-4 rounded-xl font-semibold text-lg transition-all transform hover:scale-105 ${plan.button}`}
                 onClick={() => handlePlanSelect(plan)}
               >
                 {t('pricing.cta')}
