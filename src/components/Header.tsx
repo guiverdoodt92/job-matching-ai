@@ -13,9 +13,11 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <div className="h-8 w-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">JM</span>
-              </div>
+              <img 
+                src="/public/ChatGPT_Image_14_de_ago._de_2025__17_40_00-removebg-preview.png" 
+                alt="Job Matching AI Logo" 
+                className="h-8 w-8 object-contain"
+              />
             </div>
             <div className="ml-3">
               <span className="text-xl font-bold text-gray-900">Job Matching AI</span>

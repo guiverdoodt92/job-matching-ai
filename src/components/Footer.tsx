@@ -12,9 +12,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="col-span-2">
             <div className="flex items-center mb-4">
-              <div className="h-8 w-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">JM</span>
-              </div>
+              <img 
+                src="/public/ChatGPT_Image_14_de_ago._de_2025__17_40_00-removebg-preview.png" 
+                alt="Job Matching AI Logo" 
+                className="h-8 w-8 object-contain"
+              />
               <span className="ml-3 text-xl font-bold">Job Matching AI</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
