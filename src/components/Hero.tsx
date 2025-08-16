@@ -1,11 +1,14 @@
 import React from 'react';
 import { ArrowRight, Play, FileText, Target, Users } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import AuthModal from './AuthModal';
 
 const Hero = () => {
+  const [isAuthModalOpen, setIsAuthModalOpen] = React.useState(false);
   const { t } = useLanguage();
 
   return (
+    <>
     <section className="relative bg-gradient-to-br from-gray-50 via-white to-blue-50 pt-16 pb-20 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
@@ -32,7 +35,10 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 flex items-center justify-center">
+              <button 
+                onClick={() => setIsAuthModalOpen(true)}
+                className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 flex items-center justify-center"
+              >
                 {t('hero.cta')}
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </button>
@@ -107,6 +113,13 @@ const Hero = () => {
         </div>
       </div>
     </section>
+
+    <AuthModal
+      isOpen={isAuthModalOpen}
+      onClose={() => setIsAuthModalOpen(false)}
+      initialMode="register"
+    />
+    </>
   );
 };
 

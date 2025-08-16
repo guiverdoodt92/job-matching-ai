@@ -1,8 +1,10 @@
 import React from 'react';
 import { Upload, Search, CheckCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import AuthModal from './AuthModal';
 
 const HowItWorks = () => {
+  const [isAuthModalOpen, setIsAuthModalOpen] = React.useState(false);
   const { t } = useLanguage();
 
   const steps = [
@@ -87,11 +89,20 @@ const HowItWorks = () => {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105">
+          <button 
+            onClick={() => setIsAuthModalOpen(true)}
+            className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105"
+          >
             {t('hero.cta')}
           </button>
         </div>
       </div>
+
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+        initialMode="register"
+      />
     </section>
   );
 };

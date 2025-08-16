@@ -1,12 +1,21 @@
 import React from 'react';
 import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import AuthModal from './AuthModal';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = React.useState(false);
+  const [authMode, setAuthMode] = React.useState<'login' | 'register'>('login');
   const { language, toggleLanguage, t } = useLanguage();
 
+  const handleAuthClick = (mode: 'login' | 'register') => {
+    setAuthMode(mode);
+    setIsAuthModalOpen(true);
+  };
+
   return (
+    <>
     <header className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -48,10 +57,16 @@ const Header = () => {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="text-gray-600 hover:text-gray-900 font-medium transition-colors">
+            <button 
+              onClick={() => handleAuthClick('login')}
+              className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+            >
               {t('nav.login')}
             </button>
-            <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105">
+            <button 
+              onClick={() => handleAuthClick('register')}
+              className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105"
+            >
               {t('nav.signup')}
             </button>
           </div>
@@ -91,10 +106,16 @@ const Header = () => {
                 </button>
               </div>
               <div className="px-3 py-2 space-y-2">
-                <button className="w-full text-left text-gray-600 hover:text-gray-900 font-medium">
+                <button 
+                  onClick={() => handleAuthClick('login')}
+                  className="w-full text-left text-gray-600 hover:text-gray-900 font-medium"
+                >
                   {t('nav.login')}
                 </button>
-                <button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transition-all">
+                <button 
+                  onClick={() => handleAuthClick('register')}
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transition-all"
+                >
                   {t('nav.signup')}
                 </button>
               </div>
@@ -103,6 +124,13 @@ const Header = () => {
         )}
       </div>
     </header>
+
+    <AuthModal
+      isOpen={isAuthModalOpen}
+      onClose={() => setIsAuthModalOpen(false)}
+      initialMode={authMode}
+    />
+    </>
   );
 };
 
