@@ -14,11 +14,11 @@ const Header = () => {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <div className="h-8 w-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">CV</span>
+                <span className="text-white font-bold text-sm">JM</span>
               </div>
             </div>
             <div className="ml-3">
-              <span className="text-xl font-bold text-gray-900">CVOptimizer</span>
+              <span className="text-xl font-bold text-gray-900">Job Matching AI</span>
             </div>
           </div>
 

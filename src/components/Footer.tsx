@@ -13,9 +13,9 @@ const Footer = () => {
           <div className="col-span-2">
             <div className="flex items-center mb-4">
               <div className="h-8 w-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">CV</span>
+                <span className="text-white font-bold text-sm">JM</span>
               </div>
-              <span className="ml-3 text-xl font-bold">CVOptimizer</span>
+              <span className="ml-3 text-xl font-bold">Job Matching AI</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
               {t('footer.description')}
